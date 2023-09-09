@@ -1,4 +1,4 @@
-import { useEffect, useReducer} from "react";
+import { useEffect, useReducer } from "react";
 import axios from "axios";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -6,7 +6,7 @@ import Product from "../components/Product";
 import { Helmet } from "react-helmet-async";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import {Container} from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import SocialMediaLink from "../components/SocialMediaLink";
 
 // import data from '../data';
@@ -18,7 +18,7 @@ const reducer = (state, action) => {
     case "FETCH_SUCCESS":
       return { ...state, products: action.payload, loading: false };
     case "FETCH_FAIL":
-      return { ...state, loading: false, error: action.payload };
+      return { ...state, loading: true, error: action.payload };
     default:
       return state;
   }
@@ -67,9 +67,9 @@ function HomeScreen() {
             ))}
           </Row>
         )}
-          </div> 
-          <SocialMediaLink/>
-            </Container>
+      </div>
+      <SocialMediaLink />
+    </Container>
   );
 }
 export default HomeScreen;
